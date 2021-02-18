@@ -1,0 +1,16 @@
+body{
+    background-color: #ECEFF1;
+}
+
+nav.navbar{
+    background: #121214;
+}
+
+#form-per{
+    margin-top: 40px;
+}
+
+div.card-body button{
+    background-color: #121214;
+    border: 0;
+}
