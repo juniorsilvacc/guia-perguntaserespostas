@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
+const Pergunta = require('./database/Pergunta');
+
 
 // Database
 connection
@@ -23,7 +25,13 @@ app.use(bodyParser.json());
 
 // Rotas
 app.get('/', (req, res) => {
-    res.render("index");
+    // SELECT * ALL FROM perguntas
+    Pergunta.findAll({raw: true}).then(perguntas => {
+        res.render("index", {
+            perguntas
+        });
+    });
+    
 });
 
 app.get("/perguntar", (req, res) => {
@@ -33,8 +41,15 @@ app.get("/perguntar", (req, res) => {
 app.post("/salvarpergunta", (req, res) => {
     const titulo = req.body.titulo;
     const descricao = req.body.descricao;
+    // res.send(`Formulário recebido! Título: ${titulo} Descrição: ${descricao}`);
 
-    res.send(`Formulário recebido! Título: ${titulo} Descrição: ${descricao}`);
+    Pergunta.create({
+        titulo,
+        descricao
+    }).then(() => {
+        res.redirect("/");
+    });
+    
 });
 
 // Porta do servidor

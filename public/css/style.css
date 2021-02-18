@@ -6,6 +6,10 @@ nav.navbar{
     background: #121214;
 }
 
+nav .img{
+    width: 40px;
+}
+
 #form-per{
     margin-top: 40px;
 }
@@ -13,4 +17,13 @@ nav.navbar{
 div.card-body button{
     background-color: #121214;
     border: 0;
+}
+
+/* index */
+.card-style{
+    margin-bottom: 20px;
+}
+
+.perguntas{
+    margin: 30px 0;
 }
