@@ -27,3 +27,12 @@ div.card-body button{
 .perguntas{
     margin: 30px 0;
 }
+
+/* Pergunta */
+.area-pergunta h1{
+    margin-top: 30px;
+}
+
+.area-pergunta form h3{
+    margin-top: 30px;
+}
